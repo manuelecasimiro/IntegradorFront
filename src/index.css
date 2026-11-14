@@ -1,0 +1,314 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-scale: 1;
+    --primary: #ea580c;
+    --primary-hover: #c2410c;
+    --primary-light: #fff7ed;
+    --bg-main: #edf0f4;
+    --text-main: #09090b;
+    --text-muted: #4b5563;
+    --border-color: #d1d5db;
+    --focus-ring: #ea580c;
+    --logo-inova-color: #09090b;
+  }
+
+  /* Modo Alto Contraste (WCAG 2.1 AAA) */
+  html.high-contrast {
+    --bg-main: #000000 !important;
+    --text-main: #ffffff !important;
+    --text-muted: #e4e4e7 !important;
+    --primary: #f97316 !important;
+    --primary-hover: #fb923c !important;
+    --primary-light: #18181b !important;
+    --border-color: #ffffff !important;
+    --focus-ring: #facc15 !important;
+    --logo-inova-color: #ffffff !important;
+  }
+
+  html.high-contrast body {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+  }
+
+  /* Header, Navbar e Estrutura Principal */
+  html.high-contrast header,
+  html.high-contrast nav,
+  html.high-contrast aside,
+  html.high-contrast footer,
+  html.high-contrast article,
+  html.high-contrast section,
+  html.high-contrast [role="dialog"] > div,
+  html.high-contrast .bg-white,
+  html.high-contrast .bg-zinc-50,
+  html.high-contrast .bg-zinc-100,
+  html.high-contrast .bg-zinc-200,
+  html.high-contrast .bg-zinc-800,
+  html.high-contrast .bg-zinc-900,
+  html.high-contrast .bg-zinc-950 {
+    background-color: #09090b !important;
+    border-color: #ffffff !important;
+  }
+
+  /* Logo no Alto Contraste: Inova fica BRANCO e subtítulo AMARELO */
+  html.high-contrast .logo-inova {
+    color: #ffffff !important;
+  }
+
+  html.high-contrast .logo-subtitle {
+    color: #facc15 !important;
+  }
+
+  /* Todos os Textos Escuros/Cinzas viram Branco puro no Alto Contraste */
+  html.high-contrast .text-zinc-950,
+  html.high-contrast .text-zinc-900,
+  html.high-contrast .text-zinc-800,
+  html.high-contrast .text-zinc-700,
+  html.high-contrast .text-zinc-600,
+  html.high-contrast .text-zinc-500,
+  html.high-contrast .text-zinc-400,
+  html.high-contrast .text-zinc-300,
+  html.high-contrast .text-zinc-200 {
+    color: #ffffff !important;
+  }
+
+  /* Bordas e Divisores */
+  html.high-contrast .border,
+  html.high-contrast .border-t,
+  html.high-contrast .border-b,
+  html.high-contrast .border-l,
+  html.high-contrast .border-r,
+  html.high-contrast .border-zinc-100,
+  html.high-contrast .border-zinc-200,
+  html.high-contrast .border-zinc-300,
+  html.high-contrast .border-zinc-700,
+  html.high-contrast .border-zinc-800,
+  html.high-contrast .border-zinc-900 {
+    border-color: #ffffff !important;
+  }
+
+  /* Botões e Links no Alto Contraste */
+  html.high-contrast a,
+  html.high-contrast button {
+    border-color: #ffffff !important;
+  }
+
+  html.high-contrast .bg-orange-600,
+  html.high-contrast .bg-orange-500 {
+    background-color: #ea580c !important;
+    color: #ffffff !important;
+    border: 2px solid #ffffff !important;
+  }
+
+  html.high-contrast button:hover,
+  html.high-contrast a:hover {
+    filter: brightness(1.2);
+  }
+
+  /* Formulários, Inputs, Textareas e Selects */
+  html.high-contrast input,
+  html.high-contrast textarea,
+  html.high-contrast select {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border: 2px solid #ffffff !important;
+  }
+
+  html.high-contrast input::placeholder,
+  html.high-contrast textarea::placeholder {
+    color: #a1a1aa !important;
+  }
+
+  html.high-contrast select option {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+  }
+
+  /* CHAT: Estilos Especializados no Alto Contraste */
+  html.high-contrast .chat-meeting-banner {
+    background-color: #121214 !important;
+    border-bottom: 2px solid #ffffff !important;
+    color: #ffffff !important;
+  }
+  html.high-contrast .chat-meeting-banner strong,
+  html.high-contrast .chat-meeting-banner span {
+    color: #ffffff !important;
+  }
+  html.high-contrast .chat-meeting-banner svg {
+    color: #facc15 !important;
+  }
+
+  /* Minha mensagem enviada */
+  html.high-contrast .chat-bubble-me {
+    background-color: #000000 !important;
+    border: 2px solid #f97316 !important;
+    color: #ffffff !important;
+  }
+  html.high-contrast .chat-bubble-me .chat-message-text {
+    color: #ffffff !important;
+  }
+  html.high-contrast .chat-bubble-me .chat-message-meta,
+  html.high-contrast .chat-bubble-me time {
+    color: #facc15 !important;
+  }
+
+  /* Mensagem recebida da outra pessoa */
+  html.high-contrast .chat-bubble-other {
+    background-color: #121214 !important;
+    border: 2px solid #ffffff !important;
+    color: #ffffff !important;
+  }
+  html.high-contrast .chat-bubble-other .chat-sender-name {
+    color: #facc15 !important;
+    font-weight: 800 !important;
+  }
+  html.high-contrast .chat-bubble-other .chat-message-text {
+    color: #ffffff !important;
+  }
+  html.high-contrast .chat-bubble-other .chat-message-meta,
+  html.high-contrast .chat-bubble-other time {
+    color: #e4e4e7 !important;
+  }
+
+  /* STATUS BADGES & TAGS NO ALTO CONTRASTE */
+  /* Verde / Emerald (Aceito, Confirmado, Ativo, Voluntário) */
+  html.high-contrast .bg-emerald-50,
+  html.high-contrast .bg-emerald-100,
+  html.high-contrast .bg-emerald-950,
+  html.high-contrast [class*="bg-emerald-"] {
+    background-color: #064e3b !important;
+    border: 1.5px solid #34d399 !important;
+    color: #ffffff !important;
+  }
+  html.high-contrast [class*="text-emerald-"] {
+    color: #6ee7b7 !important;
+  }
+
+  /* Âmbar / Amarelo (Pendente, Em Acompanhamento, Organizador) */
+  html.high-contrast .bg-amber-50,
+  html.high-contrast .bg-amber-100,
+  html.high-contrast .bg-amber-950,
+  html.high-contrast [class*="bg-amber-"] {
+    background-color: #451a03 !important;
+    border: 1.5px solid #fbbf24 !important;
+    color: #ffffff !important;
+  }
+  html.high-contrast [class*="text-amber-"] {
+    color: #fde047 !important;
+  }
+
+  /* Azul (Concluído, Cliente PCD) */
+  html.high-contrast .bg-blue-50,
+  html.high-contrast .bg-blue-100,
+  html.high-contrast .bg-blue-950,
+  html.high-contrast [class*="bg-blue-"] {
+    background-color: #172554 !important;
+    border: 1.5px solid #60a5fa !important;
+    color: #ffffff !important;
+  }
+  html.high-contrast [class*="text-blue-"] {
+    color: #93c5fd !important;
+  }
+
+  /* Vermelho (Recusado, Banido, Erro) */
+  html.high-contrast .bg-red-50,
+  html.high-contrast .bg-red-100,
+  html.high-contrast .bg-red-950,
+  html.high-contrast [class*="bg-red-"] {
+    background-color: #450a0a !important;
+    border: 1.5px solid #f87171 !important;
+    color: #ffffff !important;
+  }
+  html.high-contrast [class*="text-red-"] {
+    color: #fca5a5 !important;
+  }
+
+  /* Roxo (Administrador, Dono) */
+  html.high-contrast .bg-purple-50,
+  html.high-contrast .bg-purple-100,
+  html.high-contrast .bg-purple-950,
+  html.high-contrast [class*="bg-purple-"] {
+    background-color: #3b0764 !important;
+    border: 1.5px solid #c084fc !important;
+    color: #ffffff !important;
+  }
+  html.high-contrast [class*="text-purple-"] {
+    color: #e9d5ff !important;
+  }
+
+  /* Laranja (Acessibilidade, Detalhes, Badges de Apoio) */
+  html.high-contrast .bg-orange-50,
+  html.high-contrast .bg-orange-100,
+  html.high-contrast .bg-orange-950,
+  html.high-contrast [class*="bg-orange-50/"],
+  html.high-contrast [class*="bg-orange-100/"],
+  html.high-contrast [class*="bg-orange-950/"] {
+    background-color: #431407 !important;
+    border: 1.5px solid #fb923c !important;
+    color: #ffffff !important;
+  }
+  html.high-contrast [class*="text-orange-700"],
+  html.high-contrast [class*="text-orange-800"],
+  html.high-contrast [class*="text-orange-900"],
+  html.high-contrast [class*="text-orange-950"] {
+    color: #fed7aa !important;
+  }
+
+  /* Tabela de Gestão (Admin Dashboard) */
+  html.high-contrast thead {
+    background-color: #18181b !important;
+    color: #ffffff !important;
+    border-bottom: 2px solid #ffffff !important;
+  }
+  html.high-contrast thead th {
+    color: #ffffff !important;
+  }
+  html.high-contrast tbody tr {
+    border-bottom: 1px solid #3f3f46 !important;
+  }
+  html.high-contrast tbody tr:hover {
+    background-color: #18181b !important;
+  }
+
+  /* Escalas de Fonte Acessíveis */
+  html.font-scale-sm {
+    font-size: 14px;
+  }
+  html.font-scale-md {
+    font-size: 16px;
+  }
+  html.font-scale-lg {
+    font-size: 18px;
+  }
+  html.font-scale-xl {
+    font-size: 20px;
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Indicador Visível de Foco para Acessibilidade (WCAG 2.1 AA) */
+  :focus-visible {
+    outline: 3px solid var(--focus-ring) !important;
+    outline-offset: 3px !important;
+  }
+}
+
+/* Redução de movimento para usuários que preferem menos animações */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
